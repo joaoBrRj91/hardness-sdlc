@@ -86,12 +86,6 @@ da fase em que a tarefa parou.
 | `review-<N>.md`      | Orquestrador (resposta do `reviewer`) | Verdict e achados de cada rodada                             |
 | `04-retro.md`        | `retro`                               | Propostas e observações                                      |
 
-## Roteiro de adoção (4 semanas)
-
-- [ ] Semana 1: `CLAUDE.md` + hook + skill `ticket` + `state.json`; `/task` só até `explore`.
-- [ ] Semana 2: `planner` + `check-header.py` + checkpoint do plano; implementar à mão.
-- [ ] Semana 3: `implementer` + `progress-update.md` + `reviewer` com rodadas `[REVISÃO]`.
-- [ ] Semana 4: skill `pr` + triagem do review da PR + `retro`.
 
 ## Pontos a verificar na sua versão do Claude Code
 
