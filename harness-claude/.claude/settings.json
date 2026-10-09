@@ -12,7 +12,8 @@
       "Bash(git checkout -b:*)",
       "Bash(gh issue view:*)",
       "Bash(gh pr view:*)",
-      "Bash(python .claude/skills/task/scripts/check-header.py:*)"
+      "Bash(python .claude/skills/task/scripts/check-header.py:*)",
+      "Bash(python .claude/skills/task/scripts/qrun.py:*)"
     ],
     "deny": [
       "Bash(gh pr merge:*)",
