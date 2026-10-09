@@ -8,7 +8,7 @@ hooks:
     - matcher: "Write|Edit"
       hooks:
         - type: command
-          command: "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-task-docs.py\""
+          command: "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-task-docs.py\""
 ---
 Entrada: docs/tasks/<id>/01-ticket.md e docs/tasks/<id>/01b-codebase.md (mapa do explorer).
 

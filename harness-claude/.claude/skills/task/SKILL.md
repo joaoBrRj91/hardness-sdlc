@@ -37,7 +37,7 @@ Skills e subagents executam e devolvem resumos; quem decide a fase é você.
 ## 4. plan
 - Diga: "<id> · Leitura da codebase concluída. Iniciando análise e solução."
 - Chame o subagent planner com 01-ticket.md e 01b-codebase.md.
-- Rode: python3 .claude/skills/task/scripts/check-header.py docs/tasks/<id>/02-analise.md
+- Rode: python .claude/skills/task/scripts/check-header.py docs/tasks/<id>/02-analise.md
 - Use o verdict do script, não o do resumo do planner.
   Se consistent for false, avise o usuário da divergência.
 - Aplique o verdict:

@@ -3,7 +3,7 @@
 # Exit 2 devolve o erro de build ao agente, que corrige antes de seguir.
 set -uo pipefail
 
-file=$(python3 -c 'import json,sys; print(json.load(sys.stdin).get("tool_input",{}).get("file_path",""))')
+file=$(python -c 'import json,sys; print(json.load(sys.stdin).get("tool_input",{}).get("file_path",""))')
 
 case "$file" in
   *.cs|*.csproj|*.props|*.targets) ;;

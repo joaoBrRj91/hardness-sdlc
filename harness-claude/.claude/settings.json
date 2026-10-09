@@ -12,7 +12,7 @@
       "Bash(git checkout -b:*)",
       "Bash(gh issue view:*)",
       "Bash(gh pr view:*)",
-      "Bash(python3 .claude/skills/task/scripts/check-header.py:*)"
+      "Bash(python .claude/skills/task/scripts/check-header.py:*)"
     ],
     "deny": [
       "Bash(gh pr merge:*)",

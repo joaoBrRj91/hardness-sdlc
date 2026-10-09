@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """PreToolUse (planner e retro): bloqueia escrita fora de docs/tasks/.
 
 Exit 2 bloqueia a ferramenta e devolve a mensagem ao agente.

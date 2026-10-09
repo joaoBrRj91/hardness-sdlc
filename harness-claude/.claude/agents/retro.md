@@ -7,7 +7,7 @@ hooks:
     - matcher: "Write|Edit"
       hooks:
         - type: command
-          command: "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-task-docs.py\""
+          command: "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-task-docs.py\""
 ---
 Entrada: docs/tasks/<id>/ (progress-update.md, state.json, 03-plano.md),
 .claude/skills/, CLAUDE.md e as retrospectivas anteriores (docs/tasks/*/04-retro.md).
