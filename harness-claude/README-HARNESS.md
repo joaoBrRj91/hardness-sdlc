@@ -98,7 +98,7 @@ da fase em que a tarefa parou.
 
 | Arquivo              | Escrito por                           | Conteúdo                                                     |
 | -------------------- | ------------------------------------- | ------------------------------------------------------------ |
-| `state.json`         | Orquestrador                          | Fase, perguntas, premissas, `prUrl`, `processedComments`     |
+| `state.json`         | Orquestrador                          | Fase, `outputMode`, perguntas, premissas, `prUrl`            |
 | `01-ticket.md`       | Skill `ticket`                        | Resumo do ticket e perguntas classificadas                   |
 | `01b-codebase.md`    | Orquestrador (resposta do `explorer`) | Mapa da codebase                                             |
 | `02-analise.md`      | `planner`                             | Cabeçalho fixo + análise                                     |
@@ -107,7 +107,23 @@ da fase em que a tarefa parou.
 | `review-<N>.md`      | Orquestrador (resposta do `reviewer`) | Verdict e achados de cada rodada                             |
 | `04-retro.md`        | `retro`                               | Propostas e observações                                      |
 
-## Visualização no terminal
+## Modos de saída
+
+Ao iniciar uma tarefa nova, antes de ler o ticket, o orquestrador pergunta o modo de saída e
+grava a escolha em `outputMode` no `state.json`. Retomar a tarefa reaproveita o modo sem
+perguntar; `/task ENG-1234 --verbose` ou `--headless` pula a pergunta. Para trocar no meio,
+peça ao orquestrador ("mude para modo verboso").
+
+- **Verboso:** saída padrão do Claude Code. O harness não adiciona nenhuma regra de saída:
+  comandos rodam direto, agentes respondem como de costume e nada é resumido.
+- **Headless:** saída enxuta, descrita abaixo. Vale a seção "Modo headless" da skill `task` e o
+  mesmo bloco de cada agente, ativado pela linha `Modo de saída: headless` que o orquestrador
+  coloca no início do prompt de cada subagent.
+
+O modo é uma instrução ao modelo, não uma imposição: o que a interface do Claude Code recolhe por
+padrão não muda, só o que o harness pede aos agentes. `Ctrl+O` vale nos dois modos.
+
+### Modo headless
 
 - **Comandos:** `dotnet build/test/format` rodam por `qrun.py`. Sucesso vira uma linha
   (`✔ dotnet test · 42 passed · 0 failed · 1 skipped · 3.2s`); falha mostra `✖ ... · exit N` e
