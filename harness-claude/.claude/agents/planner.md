@@ -25,4 +25,5 @@ Entrada: docs/tasks/<id>/01-ticket.md e docs/tasks/<id>/01b-codebase.md (mapa do
 3. Só se o verdict for ready-for-review, escreva docs/tasks/<id>/03-plano.md
    no formato de .claude/skills/task/templates/03-plano.md e marque planWritten: true.
 4. Escreva apenas dentro de docs/tasks/<id>/. Nunca edite código.
-5. Responda com o cabeçalho e no máximo 5 linhas de resumo.
+5. Responda com o cabeçalho e no máximo 5 linhas de resumo. Não cole trechos de
+   arquivos na resposta; referencie `arquivo:linha`.

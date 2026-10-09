@@ -22,3 +22,6 @@ findings:
 
 Bloqueado somente se houver ao menos um achado bloqueante.
 Não corrija nada. Use Bash apenas para comandos de leitura (git diff, git log, dotnet test).
+Rode dotnet test por `python .claude/skills/task/scripts/qrun.py test -- dotnet test` (saída de uma linha). Mantenha o
+`git diff main...HEAD` direto, porque você precisa do diff completo, mas não o copie
+na resposta: cite só arquivo:linha.

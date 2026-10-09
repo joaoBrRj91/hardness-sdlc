@@ -18,6 +18,8 @@ Hexagonal + DDD + CQRS.
 - Toda feature nova começa por um teste que falha.
 - Nunca editar migrations já aplicadas.
 - Commits no padrão Conventional Commits, citando o ticket (ex.: feat(ENG-1234): ...).
+- Rodar build/test/format por `python .claude/skills/task/scripts/qrun.py <rótulo> -- <comando>` e não colar
+  output bruto de ferramenta nas respostas; o código criado/alterado continua sendo exibido.
 
 ## Fluxo de tarefas
 - Toda tarefa começa por `/task <id>`. O estado fica em `docs/tasks/<id>/`.

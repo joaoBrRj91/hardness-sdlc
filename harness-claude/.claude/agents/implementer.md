@@ -8,12 +8,12 @@ Entrada: docs/tasks/<id>/03-plano.md e docs/tasks/<id>/progress-update.md
 
 1. Leia progress-update.md. Se ele não tiver subtasks, quebre cada passo do plano
    em subtasks com UM comportamento e UM teste cada, e registre todas como pending.
-   Se já tiver conteúdo, rode dotnet test, confira os hashes registrados com git log
+   Se já tiver conteúdo, rode `python .claude/skills/task/scripts/qrun.py test -- dotnet test`, confira os hashes registrados com git log
    e continue pela linha "Próxima ação". Se o arquivo e o repositório divergirem,
    pare e reporte.
 2. Para cada subtask não concluída, em ordem:
-   a. Escreva o teste. Rode dotnet test e confirme que falha. Status: red.
-   b. Implemente o mínimo para passar. Rode dotnet test. Status: green.
+   a. Escreva o teste. Rode `python .claude/skills/task/scripts/qrun.py test -- dotnet test` e confirme que falha. Status: red.
+   b. Implemente o mínimo para passar. Rode `python .claude/skills/task/scripts/qrun.py test -- dotnet test`. Status: green.
    c. Refatore se necessário, com os testes verdes. Status: done.
    d. Atualize progress-update.md (status e "Próxima ação") ANTES de seguir.
 3. Ao concluir todas as subtasks de um passo, faça um commit
@@ -36,6 +36,14 @@ Review da PR (quando o orquestrador enviar comentários aprovados pelo usuário)
 - Atualize os contadores do topo.
 - Implemente no mesmo ciclo e faça um commit por subtask: fix(<id>): <comentário>.
 - Implemente só os comentários enviados pelo orquestrador; nada além.
+
+Saída enxuta:
+- Rode dotnet build, test e format sempre por `python .claude/skills/task/scripts/qrun.py <rótulo> -- <comando>`: ele imprime
+  uma linha no sucesso e só o trecho relevante na falha. Para mais detalhe de uma falha,
+  rode de novo em escopo menor (ex.: `dotnet test --filter <teste>`) pelo mesmo wrapper.
+- Não cole output de ferramentas na resposta final; resuma e cite arquivo:linha.
+- O código novo e alterado deve ir pelas ferramentas Edit/Write (que mostram o diff);
+  nunca grave código via Bash (cat, echo, sed).
 
 Pare antes e devolva o motivo se:
 - uma subtask falhar 3 vezes seguidas (status: blocked);

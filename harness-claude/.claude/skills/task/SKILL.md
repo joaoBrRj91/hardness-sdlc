@@ -75,7 +75,9 @@ Skills e subagents executam e devolvem resumos; quem decide a fase é você.
 
 ## 7. validating
 - Diga: "<id> · Iniciando validação: testes e revisão."
-- Rode dotnet test. Falhou: phase: implementing; chame o implementer com o erro.
+- Rode `python .claude/skills/task/scripts/qrun.py test -- dotnet test`.
+  Falhou: phase: implementing; chame o implementer com o trecho de erro que o wrapper imprimiu.
+- Diga: "<id> · validating · testes ✔ · chamando reviewer."
 - Chame o subagent reviewer. Some 1 a reviewRound no state.json e salve a resposta
   em docs/tasks/<id>/review-<reviewRound>.md.
 - Aprovado: phase: pr; vá para a seção 8, levando as sugestões para a PR.
@@ -138,7 +140,11 @@ Dentro de subagents a UI pode recolher os diffs, então você o exibe como texto
 
 ## Regras
 - Grave state.json a cada mudança de fase, antes de qualquer mensagem de parada.
-- Mensagens de status: uma linha, começando por "<id> ·".
+- Mensagens de status: uma linha, no formato "<id> · <fase> · <detalhe>". Emita uma antes
+  de chamar cada subagent e uma ao receber o resultado.
+- Nunca cole output bruto de ferramenta (build, test, git, gh) no chat. Rode dotnet
+  build/test/format pelo `qrun.py` e comente o resultado em uma linha; em falha, mostre só o
+  trecho que o wrapper imprimiu. A exceção é o código alterado, descrito acima.
 - Nunca saia de plan-review, awaiting-decision ou split sem resposta explícita do usuário.
 - Nunca escreva código antes de phase: implementing.
 - Nunca faça merge de PR.

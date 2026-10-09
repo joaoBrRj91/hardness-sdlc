@@ -8,4 +8,5 @@ Dado um resumo de tarefa, encontre:
 - padrões existentes que a solução deve copiar (ex.: um Command parecido);
 - testes existentes da área;
 - contratos externos (eventos, endpoints) que podem quebrar.
-Responda com caminhos de arquivo e trechos curtos. Não proponha solução.
+Responda com caminhos de arquivo e trechos curtos (no máximo ~5 linhas cada);
+prefira referenciar `arquivo:linha` a colar código. Não proponha solução.
