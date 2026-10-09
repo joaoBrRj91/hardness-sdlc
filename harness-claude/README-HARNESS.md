@@ -15,7 +15,7 @@ CLAUDE.md                              # memória do projeto (adapte ao seu serv
 .claude/
 ├── settings.json                      # permissões + hook de format/build
 ├── hooks/
-│   ├── post-edit.sh                   # PostToolUse: dotnet format + build em arquivos .NET
+│   ├── post-edit.sh                   # PostToolUse: dotnet format + build do projeto editado
 │   └── guard-task-docs.py             # PreToolUse: planner e retro só escrevem em docs/tasks/
 ├── agents/
 │   ├── explorer.md                    # lê a codebase (somente leitura)
@@ -154,5 +154,8 @@ padrão não muda, só o que o harness pede aos agentes. `Ctrl+O` vale nos dois 
   peça "rode a skill task para ENG-1234".
 - **Subagents e diffs:** confirme se, na sua versão, as chamadas internas do `implementer` aparecem
   recolhidas e se o Edit/Write mostra o diff dentro do subagent. O `show-changes.sh` cobre os dois casos.
-- **Hook de build:** o `post-edit.sh` roda `dotnet build` a cada edição de arquivo .NET.
-  Em soluções grandes, troque por um build do projeto afetado.
+- **Hook de build:** o `post-edit.sh` roda `dotnet format` e `dotnet build` só do projeto
+  (`.csproj`) dono do arquivo editado, achado subindo as pastas a partir do arquivo. Erros em
+  projetos que dependem dele (ex.: editar o Domain quebra a Application) só aparecem no
+  `dotnet test` da validação. Edições em `.props`/`.targets` ou em `.cs` sem `.csproj` acima
+  caem no build padrão da pasta, que pode ser a solução inteira.
