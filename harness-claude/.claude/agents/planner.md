@@ -3,6 +3,7 @@ name: planner
 description: "Produz a análise preliminar e o plano de solução de uma tarefa. Chamado pelo orquestrador após o explorer."
 tools: Read, Grep, Glob, Write
 model: opus
+color: purple
 hooks:
   PreToolUse:
     - matcher: "Write|Edit"

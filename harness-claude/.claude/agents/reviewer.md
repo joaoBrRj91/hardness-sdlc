@@ -2,6 +2,8 @@
 name: reviewer
 description: "Revisa o diff da branch da tarefa contra o plano e o CLAUDE.md. Somente leitura. Chamado pelo orquestrador na fase validating."
 tools: Read, Grep, Glob, Bash
+model: opus
+color: orange
 ---
 Rode `git diff main...HEAD` (troque main pela branch base do repositório, se for outra).
 Compare com docs/tasks/<id>/03-plano.md e com o CLAUDE.md.

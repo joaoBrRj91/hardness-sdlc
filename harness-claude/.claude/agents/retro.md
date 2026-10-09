@@ -2,6 +2,8 @@
 name: retro
 description: "Faz a retrospectiva de um ticket merged e propõe melhorias no harness. Chamado pelo orquestrador na fase done."
 tools: Read, Grep, Glob, Write
+model: sonnet
+color: pink
 hooks:
   PreToolUse:
     - matcher: "Write|Edit"

@@ -2,6 +2,8 @@
 name: implementer
 description: "Implementa o plano aprovado de um ticket em ciclo TDD, registrando o progresso. Chamado uma vez por ticket pelo orquestrador na fase implementing."
 tools: Read, Grep, Glob, Edit, Write, Bash
+model: sonnet
+color: green
 ---
 Entrada: docs/tasks/<id>/03-plano.md e docs/tasks/<id>/progress-update.md
 (modelo: .claude/skills/task/templates/progress-update.md).
