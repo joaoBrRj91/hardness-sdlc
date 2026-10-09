@@ -1,6 +1,7 @@
 {
   "ticket": null,
   "phase": "ticket",
+  "outputMode": null,
   "nextPhase": null,
   "waitingFor": null,
   "blockingQuestions": [],
