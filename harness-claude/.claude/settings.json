@@ -13,7 +13,8 @@
       "Bash(gh issue view:*)",
       "Bash(gh pr view:*)",
       "Bash(python .claude/skills/task/scripts/check-header.py:*)",
-      "Bash(python .claude/skills/task/scripts/qrun.py:*)"
+      "Bash(python .claude/skills/task/scripts/qrun.py:*)",
+      "Bash(bash .claude/skills/task/scripts/show-changes.sh:*)"
     ],
     "deny": [
       "Bash(gh pr merge:*)",

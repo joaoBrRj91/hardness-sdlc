@@ -7,6 +7,8 @@
   "assumptions": [],
   "artifacts": {},
   "reviewRound": 0,
+  "baseCommit": null,
+  "shownUntil": null,
   "prUrl": null,
   "processedComments": [],
   "updatedAt": null
