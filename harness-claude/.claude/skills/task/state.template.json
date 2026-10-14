@@ -1,12 +1,15 @@
 {
   "ticket": null,
   "phase": "ticket",
+  "outputMode": null,
   "nextPhase": null,
   "waitingFor": null,
   "blockingQuestions": [],
   "assumptions": [],
   "artifacts": {},
   "reviewRound": 0,
+  "baseCommit": null,
+  "shownUntil": null,
   "prUrl": null,
   "processedComments": [],
   "updatedAt": null

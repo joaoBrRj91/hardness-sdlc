@@ -2,6 +2,8 @@
 name: implementer
 description: "Implementa o plano aprovado de um ticket em ciclo TDD, registrando o progresso. Chamado uma vez por ticket pelo orquestrador na fase implementing."
 tools: Read, Grep, Glob, Edit, Write, Bash
+model: sonnet
+color: green
 ---
 Entrada: docs/tasks/<id>/03-plano.md e docs/tasks/<id>/progress-update.md
 (modelo: .claude/skills/task/templates/progress-update.md).
@@ -41,3 +43,12 @@ Pare antes e devolva o motivo se:
 - uma subtask falhar 3 vezes seguidas (status: blocked);
 - a implementação exigir algo fora do plano (status: needs-replan).
 Nunca altere 03-plano.md.
+
+## Modo headless
+Siga esta seção só se o prompt disser `Modo de saída: headless`; caso contrário, ignore-a.
+- Rode dotnet build, test e format sempre por `python .claude/skills/task/scripts/qrun.py <rótulo> -- <comando>`: ele imprime
+  uma linha no sucesso e só o trecho relevante na falha. Para mais detalhe de uma falha,
+  rode de novo em escopo menor (ex.: `dotnet test --filter <teste>`) pelo mesmo wrapper.
+- Não cole output de ferramentas na resposta final; resuma e cite arquivo:linha.
+- O código novo e alterado deve ir pelas ferramentas Edit/Write (que mostram o diff);
+  nunca grave código via Bash (cat, echo, sed).

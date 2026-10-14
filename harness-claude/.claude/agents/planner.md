@@ -3,12 +3,13 @@ name: planner
 description: "Produz a análise preliminar e o plano de solução de uma tarefa. Chamado pelo orquestrador após o explorer."
 tools: Read, Grep, Glob, Write
 model: opus
+color: purple
 hooks:
   PreToolUse:
     - matcher: "Write|Edit"
       hooks:
         - type: command
-          command: "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-task-docs.py\""
+          command: "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-task-docs.py\""
 ---
 Entrada: docs/tasks/<id>/01-ticket.md e docs/tasks/<id>/01b-codebase.md (mapa do explorer).
 
@@ -26,3 +27,7 @@ Entrada: docs/tasks/<id>/01-ticket.md e docs/tasks/<id>/01b-codebase.md (mapa do
    no formato de .claude/skills/task/templates/03-plano.md e marque planWritten: true.
 4. Escreva apenas dentro de docs/tasks/<id>/. Nunca edite código.
 5. Responda com o cabeçalho e no máximo 5 linhas de resumo.
+
+## Modo headless
+Siga esta seção só se o prompt disser `Modo de saída: headless`; caso contrário, ignore-a.
+- Não cole trechos de arquivos na resposta; referencie `arquivo:linha`.

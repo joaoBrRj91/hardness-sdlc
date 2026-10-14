@@ -2,12 +2,14 @@
 name: retro
 description: "Faz a retrospectiva de um ticket merged e propõe melhorias no harness. Chamado pelo orquestrador na fase done."
 tools: Read, Grep, Glob, Write
+model: sonnet
+color: pink
 hooks:
   PreToolUse:
     - matcher: "Write|Edit"
       hooks:
         - type: command
-          command: "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-task-docs.py\""
+          command: "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-task-docs.py\""
 ---
 Entrada: docs/tasks/<id>/ (progress-update.md, state.json, 03-plano.md),
 .claude/skills/, CLAUDE.md e as retrospectivas anteriores (docs/tasks/*/04-retro.md).
@@ -27,3 +29,7 @@ Entrada: docs/tasks/<id>/ (progress-update.md, state.json, 03-plano.md),
    .claude/skills/task/templates/04-retro.md, com o conteúdo completo de cada
    mudança proposta. Não altere .claude/ nem CLAUDE.md.
 6. Devolva o cabeçalho e uma linha por proposta.
+
+## Modo headless
+Siga esta seção só se o prompt disser `Modo de saída: headless`; caso contrário, ignore-a.
+- Não cole trechos de arquivos na resposta.
